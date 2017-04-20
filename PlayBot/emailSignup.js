@@ -1,6 +1,6 @@
 'use strict';
 const Mongo = require('mongodb').MongoClient;
-const uri = "mongodb://....";
+const uri = "mongodb://fergus:1234@ds111851.mlab.com:11851/playbot";
 
 module.exports = function(ctx, cb) {
   let mailID = ctx.data.replyData;
@@ -12,7 +12,7 @@ module.exports = function(ctx, cb) {
         }, {
           email: mailID
         }, {
-          upset: true
+          upsert: true
         }, (error, result) => {
           if (!error) {
             db.close();
